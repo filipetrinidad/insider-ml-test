@@ -1,9 +1,8 @@
 # insider-ml-test
 
-O pipeline foi construído usando tensorflow extended (tfx), uma biblioteca open source focada na criação e gerenciamento de pipelines de machine learning. O tfx faz parte do ecossistema tensorflow e é focada em ambientes de produção.
+O pipeline foi construído usando TensorFlow Extended (TFX), uma biblioteca open-source focada na criação e gerenciamento de pipelines de machine learning. O TFX faz parte do ecossistema TensorFlow e é focado em ambientes de produção.
 
-O tfx faz parte do ecossistema tensorflow e possui integração com o google cloud platform.
-Tfx possui integração com Kubeflow pipeline, de modo que o json exportado pode ser utilizado em ambos.
+O TFX possui integração com o Google Cloud Platform e com o Kubeflow Pipelines, de modo que o JSON exportado pode ser utilizado em ambos.
 
 Para executar o pipeline, execute:
 
@@ -25,20 +24,20 @@ Os elementos utilizados na criação do pipeline foram:
 Processamento dos dados
 =================================================
 
-A primeira etapa foi remover os usuários da planilha que não possuam idade, e renomeia o sexo pars 1 - masculo e 0 feminino
-Em seguida o componente CSVExampleGen recebe o csv e o transforma em TFRecords. StaticsGe gere algumas estatísticas sobre o dataset.
+A primeira etapa foi remover da planilha os usuários que não possuíam idade e renomear o campo de sexo para 1 = masculino e 0 = feminino.
+Em seguida, o componente CSVExampleGen recebe o CSV e o transforma em TFRecords. O StatisticsGen gera algumas estatísticas sobre o dataset.
 
-O SchemGen gera um esquema de dados que será utilizado pelo Trainer.
+O SchemaGen gera um esquema de dados que será utilizado pelo Trainer.
 
 Modelagem e treinamento
 =================================================
 
-Após a geração da base de dados, o componente Trainer recebe o modelo, parâmetros e configurações, por último realiza o treinamento no Vertex AI.
+Após a geração da base de dados, o componente Trainer recebe o modelo, parâmetros e configurações, por último o treinamento é feito no Vertex AI.
 
 Pusher
 =================================================
 
-O componente exporta o modelo savo no formato SavedModel e faz um deploy no Vertex Ai Prediction.
+O componente exporta o modelo no formato SavedModel e faz um deploy no Vertex Ai Prediction.
 
 
 Para monitoramento do modelo, utilizei o TensorBoard que está integrado a aba de Experimentos do vertex ai.
