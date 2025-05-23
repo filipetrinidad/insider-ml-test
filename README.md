@@ -26,13 +26,14 @@ Processamento dos dados
 =================================================
 
 A primeira etapa foi remover os usuários da planilha que não possuam idade, e renomeia o sexo pars 1 - masculo e 0 feminino
-Em seguida o componente CSVExampleGen recebe o csv e o transforma em TFRecords
-StaticsGe gere algumas estatísticas sobre o dataset e SchemGen gera ..
+Em seguida o componente CSVExampleGen recebe o csv e o transforma em TFRecords. StaticsGe gere algumas estatísticas sobre o dataset.
+
+O SchemGen gera um esquema de dados que será utilizado pelo Trainer.
 
 Modelagem e treinamento
 =================================================
 
-Após a geração da base de dados, o componente Trainer recebe o modelo, parâmetros e configurações e realiza o treinamento no Vertex AI
+Após a geração da base de dados, o componente Trainer recebe o modelo, parâmetros e configurações, por último realiza o treinamento no Vertex AI.
 
 Pusher
 =================================================
