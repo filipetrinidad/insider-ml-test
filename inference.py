@@ -1,14 +1,12 @@
 from google.cloud import aiplatform
 import numpy as np
 
-# Supondo que GOOGLE_CLOUD_REGION e GOOGLE_CLOUD_PROJECT vêm de settings.py
-# Se não, defina-os diretamente aqui para teste ou mostre como são carregados.
 from settings import (
     GOOGLE_CLOUD_REGION,
     GOOGLE_CLOUD_PROJECT,
 )
 
-ENDPOINT_ID = "3133393734394183680" # Certifique-se que este é o ID que causa o erro
+ENDPOINT_ID = "3133393734394183680"
 
 print(f"--- Informações de Depuração ---")
 print(f"GOOGLE_CLOUD_PROJECT: {GOOGLE_CLOUD_PROJECT}")
@@ -38,7 +36,7 @@ endpoint_path_str = client.endpoint_path(
 print(f"Caminho do Endpoint Construído: {endpoint_path_str}")
 print(f"--- Fim das Informações de Depuração ---")
 
-# A linha abaixo é a linha 31 no seu traceback original
+
 response = client.predict(endpoint=endpoint_path_str, instances=instances)
 
 for i, prediction in enumerate(response.predictions):
