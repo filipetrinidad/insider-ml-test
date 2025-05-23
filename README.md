@@ -7,8 +7,9 @@ Tfx possui integração com Kubeflow pipeline, de modo que o json exportado pode
 
 Para executar o pipeline, execute:
 
-*`pip install -r requirements.txt`
-*`python main.py`
+`pip install -r requirements.txt`
+
+`python main.py`
 
 Os elementos utilizados na criação do pipeline foram:
 
@@ -47,6 +48,10 @@ Para monitoramento do modelo, utilizei o TensorBoard que está integrado a aba d
 O endpoint do modelo está publico e é possível fazer uma inferência executando:
 
 `python inference.py`
+
+INPUTS: 'pclass','age', 'parch', 'fare', 'sex'
+OUTPUTS: sobreviveu, nao-sobrevibeu
+
 
 Configurações da máquida de uso:
 OS: Ubuntu 22.4LTS
