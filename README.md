@@ -7,16 +7,17 @@ Tfx possui integração com Kubeflow pipeline, de modo que o json exportado pode
 
 Para executar o pipeline, execute:
 
-`pip install -r requirements.txt`
-`python main.py`
+*`pip install -r requirements.txt`
+*`python main.py`
 
 Os elementos utilizados na criação do pipeline foram:
 
-•⁠  ⁠CSVExampleGen - Que recebe o CSV com os dados e os transformam em TFRecords;
-•⁠  ⁠StatictisGe - Gera algumas estatísticas sobre o dataset;
-•⁠  ⁠SchemGen - Cria um "esquema" de valores, que é utilizado pelo Trainer;
-•⁠  ⁠Trainer - Inicializa o treinamento no vertex AI Traning no Google CLoud Platform
-•⁠  ⁠Pusher - Faz updload do modelo no vertex AI Prediction.
+
+*CSVExampleGen - Que recebe o CSV com os dados e os transformam em TFRecords;
+*⁠StatictisGe - Gera algumas estatísticas sobre o dataset;
+*⁠SchemGen - Cria um "esquema" de valores, que é utilizado pelo Trainer;
+*⁠Trainer - Inicializa o treinamento no vertex AI Traning no Google CLoud Platform
+*⁠Pusher - Faz updload do modelo no vertex AI Prediction.
 
 ![Pipeline de Treinamento](imagens/image_1.png)
 
