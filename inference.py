@@ -1,11 +1,19 @@
 from google.cloud import aiplatform
 import numpy as np
 
+# Supondo que GOOGLE_CLOUD_REGION e GOOGLE_CLOUD_PROJECT vêm de settings.py
+# Se não, defina-os diretamente aqui para teste ou mostre como são carregados.
 from settings import (
     GOOGLE_CLOUD_REGION,
     GOOGLE_CLOUD_PROJECT,
-    ENDPOINT_ID,
 )
+
+ENDPOINT_ID = "3133393734394183680" # Certifique-se que este é o ID que causa o erro
+
+print(f"--- Informações de Depuração ---")
+print(f"GOOGLE_CLOUD_PROJECT: {GOOGLE_CLOUD_PROJECT}")
+print(f"GOOGLE_CLOUD_REGION: {GOOGLE_CLOUD_REGION}")
+print(f"ENDPOINT_ID: {ENDPOINT_ID}")
 
 client_options = {
     'api_endpoint': f'{GOOGLE_CLOUD_REGION}-aiplatform.googleapis.com'
@@ -22,18 +30,19 @@ instances = [
     },
 ]
 
-endpoint = client.endpoint_path(
+endpoint_path_str = client.endpoint_path(
     project=GOOGLE_CLOUD_PROJECT,
     location=GOOGLE_CLOUD_REGION,
     endpoint=ENDPOINT_ID,
 )
+print(f"Caminho do Endpoint Construído: {endpoint_path_str}")
+print(f"--- Fim das Informações de Depuração ---")
 
-response = client.predict(endpoint=endpoint, instances=instances)
-
+# A linha abaixo é a linha 31 no seu traceback original
+response = client.predict(endpoint=endpoint_path_str, instances=instances)
 
 for i, prediction in enumerate(response.predictions):
-    # retorna logits para 2 classes: [logit_sobreviveu, logit_não_sobreviveu]
-    probs = np.exp(prediction) / np.sum(np.exp(prediction)) 
+    probs = np.exp(prediction) / np.sum(np.exp(prediction))
     pred_class = int(np.argmax(probs))
     print(f'Instância {i}:')
     print(f'  logits  = {prediction}')

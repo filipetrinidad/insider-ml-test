@@ -43,6 +43,11 @@ Para monitoramento do modelo, utilizei o TensorBoard que está integrado a aba d
 
 *[Verifique o TensorBoard do treinamento. ](https://us-central1.tensorboard.googleusercontent.com/experiment/projects+913507232607+locations+us-central1+tensorboards+6450522458859503616+experiments+3715416520885534720/#scalars)*
 
+
+O endpoint do modelo está publico e é possível fazer uma inferência executando:
+
+`python inference.py`
+
 Configurações da máquida de uso:
 OS: Ubuntu 22.4LTS
 Processador: Inter Core I5
