@@ -13,11 +13,11 @@ Para executar o pipeline, execute:
 Os elementos utilizados na criação do pipeline foram:
 
 
-*CSVExampleGen - Que recebe o CSV com os dados e os transformam em TFRecords;
-*⁠StatictisGe - Gera algumas estatísticas sobre o dataset;
-*⁠SchemGen - Cria um "esquema" de valores, que é utilizado pelo Trainer;
-*⁠Trainer - Inicializa o treinamento no vertex AI Traning no Google CLoud Platform
-*⁠Pusher - Faz updload do modelo no vertex AI Prediction.
+- **CSVExampleGen**: recebe o CSV com os dados e transforma em TFRecords;
+- **StatisticsGen**: gera algumas estatísticas sobre o dataset;
+- **SchemaGen**: cria um "esquema" de valores, que é utilizado pelo Trainer;
+- **Trainer**: inicializa o treinamento no Vertex AI Training no Google Cloud Platform;
+- **Pusher**: faz upload do modelo no Vertex AI Prediction.
 
 ![Pipeline de Treinamento](imagens/image_1.png)
 
